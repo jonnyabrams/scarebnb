@@ -1,4 +1,4 @@
-export interface PropertyType {
+export interface IProperty {
   img: string;
   location: string;
   distance: string;

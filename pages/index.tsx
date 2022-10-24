@@ -1,10 +1,11 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
-import { PropertyType } from "../typings";
+import SmallCard from "../components/SmallCard";
+import { IProperty } from "../typings";
 
 interface IProps {
-  exploreData: PropertyType[];
+  exploreData: IProperty[];
 }
 
 const Home = ({ exploreData }: IProps) => {
@@ -22,6 +23,13 @@ const Home = ({ exploreData }: IProps) => {
       <main className="px-8 mx-auto max-w-7xl sm:px-16">
         <section className="pt-6">
           <h2 className="pb-5 text-4xl font-semibold">Explore Nearby</h2>
+
+          {exploreData?.map((property) => (
+            <SmallCard
+              property={property}
+              key={property.img}
+            />
+          ))}
         </section>
       </main>
     </div>
