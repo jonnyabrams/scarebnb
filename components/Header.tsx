@@ -8,7 +8,7 @@ const Header = () => {
         {/* left side */}
         <div className="relative flex items-center h-10 my-auto cursor-pointer">
           <Image
-            src="/sparebnb-logo.png"
+            src="/scarebnb-logo.png"
             layout="fill"
             objectFit="contain"
             objectPosition="left"

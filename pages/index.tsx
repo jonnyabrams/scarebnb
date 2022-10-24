@@ -1,9 +1,13 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import { PropertyType } from "../typings";
 
-const Home: NextPage = () => {
+interface IProps {
+  exploreData: PropertyType[];
+}
+
+const Home = ({ exploreData }: IProps) => {
   return (
     <div className="">
       <Head>
@@ -18,12 +22,22 @@ const Home: NextPage = () => {
       <main className="px-8 mx-auto max-w-7xl sm:px-16">
         <section className="pt-6">
           <h2 className="pb-5 text-4xl font-semibold">Explore Nearby</h2>
-
-          
         </section>
       </main>
     </div>
   );
+};
+
+export const getStaticProps = async () => {
+  const exploreData = await fetch("https://www.jsonkeeper.com/b/5V1F").then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      exploreData,
+    },
+  };
 };
 
 export default Home;
