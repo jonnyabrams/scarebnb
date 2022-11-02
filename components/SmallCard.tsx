@@ -7,7 +7,7 @@ interface IProps {
   key: string;
 }
 
-const SmallCard = ({ property, key }: IProps) => {
+const SmallCard = ({ property }: IProps) => {
   return (
     <div className="flex items-center m-2 mt-5 space-x-4 transition duration-200 ease-out transform cursor-pointer rounded-xl hover:bg-gray-100 hover:scale-105">
       {/* left side */}
