@@ -4,5 +4,6 @@
 
 Looking for a haunted house to stay at this Halloween? Try this responsive Airbnb clone using TypeScript, Next.js, React, Tailwind CSS, Heroicons, Mapbox, Calendar and Date Picker.
 
-Data pulled from https://www.jsonkeeper.com/b/5V1F
+Explore data pulled from https://www.jsonkeeper.com/b/5V1F
 
+Card data pulled from https://jsonkeeper.com/b/LRQM 
