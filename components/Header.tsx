@@ -1,7 +1,28 @@
 import Image from "next/image";
-import { MagnifyingGlassIcon, GlobeAltIcon, Bars3Icon, UserCircleIcon, UsersIcon } from '@heroicons/react/24/solid'
+import {
+  MagnifyingGlassIcon,
+  GlobeAltIcon,
+  Bars3Icon,
+  UserCircleIcon,
+  UsersIcon,
+} from "@heroicons/react/24/solid";
+import { useState } from "react";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { DateRangePicker } from "react-date-range";
 
 const Header = () => {
+  const [searchInput, setSearchInput] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  // configuration for date range picker - es6 short syntax for startDate: startDate & endDate: endDate
+  const selectionRange = {
+    startDate,
+    endDate,
+    key: "Selection",
+  };
+
   return (
     <div>
       <header className="sticky top-0 z-50 grid grid-cols-3 p-5 bg-white shadow-md md:px-10">
@@ -18,7 +39,13 @@ const Header = () => {
 
         {/* middle - search */}
         <div className="flex items-center py-2 rounded-full md:border-2 md:shadow-sm">
-          <input className="flex-grow pl-5 text-sm text-gray-600 placeholder-gray-400 bg-transparent outline-none" type="text" placeholder="Start your search" />
+          <input
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            className="flex-grow pl-5 text-sm text-gray-600 placeholder-gray-400 bg-transparent outline-none"
+            type="text"
+            placeholder="Start your search"
+          />
           <MagnifyingGlassIcon className="hidden h-8 p-2 text-white bg-red-400 rounded-full cursor-pointer md:inline-flex md:mx-2" />
         </div>
 
@@ -32,6 +59,13 @@ const Header = () => {
             <UserCircleIcon className="h-6" />
           </div>
         </div>
+
+        {/* calendar, triggered by search input */}
+        {searchInput && (
+          <div>
+            <DateRangePicker ranges={[selectionRange]} />
+          </div>
+        )}
       </header>
     </div>
   );
