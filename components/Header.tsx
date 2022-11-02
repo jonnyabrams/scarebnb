@@ -9,12 +9,13 @@ import {
 import { useState } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { DateRangePicker, RangeKeyDict } from "react-date-range";
+import { DateRangePicker } from "react-date-range";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [noOfGuests, setNoOfGuests] = useState(1);
 
   // configuration for date range picker - es6 short syntax for startDate: startDate & endDate: endDate
   const selectionRange = {
@@ -74,6 +75,30 @@ const Header = () => {
               rangeColors={["#FD5B61"]}
               onChange={handleSelect}
             />
+            <div className="flex items-center mb-4 border-b">
+              <h2 className="flex-grow text-2xl font-semibold">
+                Number of Guests
+              </h2>
+
+              <UsersIcon className="h-5" />
+              <input
+                value={noOfGuests}
+                onChange={(e) => setNoOfGuests(Number(e.target.value))}
+                min={1} // so user can't go beneath 1
+                type="number"
+                className="w-12 pl-2 text-lg text-red-400 outline-none"
+              />
+            </div>
+
+            <div className="flex">
+              <button
+                onClick={() => setSearchInput("")}
+                className="flex-grow text-gray-500"
+              >
+                Cancel
+              </button>
+              <button className="flex-grow text-red-400">Search</button>
+            </div>
           </div>
         )}
       </header>
