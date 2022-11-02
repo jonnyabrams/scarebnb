@@ -67,7 +67,7 @@ const Header = () => {
 
         {/* calendar, triggered by search input */}
         {searchInput && (
-          <div>
+          <div className="flex flex-col col-span-3 mx-auto">
             <DateRangePicker
               ranges={[selectionRange]}
               minDate={new Date()}
