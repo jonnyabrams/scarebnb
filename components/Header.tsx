@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { DateRangePicker } from "react-date-range";
+import { DateRangePicker, RangeKeyDict } from "react-date-range";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -20,7 +20,12 @@ const Header = () => {
   const selectionRange = {
     startDate,
     endDate,
-    key: "Selection",
+    key: "selection", // used below in ranges.selection.startDate
+  };
+
+  const handleSelect = (ranges: any) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
   };
 
   return (
@@ -63,7 +68,12 @@ const Header = () => {
         {/* calendar, triggered by search input */}
         {searchInput && (
           <div>
-            <DateRangePicker ranges={[selectionRange]} />
+            <DateRangePicker
+              ranges={[selectionRange]}
+              minDate={new Date()}
+              rangeColors={["#FD5B61"]}
+              onChange={handleSelect}
+            />
           </div>
         )}
       </header>
