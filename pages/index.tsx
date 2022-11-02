@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import LargeCard from "../components/LargeCard";
 import MediumCard from "../components/MediumCard";
 import SmallCard from "../components/SmallCard";
 import { ICard, IProperty } from "../typings";
@@ -42,6 +43,13 @@ const Home = ({ exploreData, cardsData }: IProps) => {
             ))}
           </div>
         </section>
+
+        <LargeCard
+          img="/large-card.avif"
+          title="The Greatest Outdoors"
+          description="Wishlists curated by ScareBnb"
+          buttonText="Get Inspired"
+        />
       </main>
     </div>
   );
