@@ -21,7 +21,7 @@ const Home = ({ exploreData, cardsData }: IProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header placeholder="" />
       <Banner />
 
       <main className="px-8 mx-auto max-w-7xl sm:px-16">

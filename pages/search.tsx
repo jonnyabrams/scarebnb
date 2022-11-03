@@ -3,14 +3,16 @@ import moment from "moment";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import data from "../data";
+import InfoCard from "../components/InfoCard";
 
 const Search = () => {
   const router = useRouter();
   const { location, startDate, endDate, noOfGuests } = router.query;
 
-  const formattedStartDate = moment(startDate).format('DD/MM/YYYY');
-  const formattedEndDate = moment(endDate).format('DD/MM/YYYY');
-  const range = `${formattedStartDate} - ${formattedEndDate}`
+  const formattedStartDate = moment(startDate).format("DD/MM/YYYY");
+  const formattedEndDate = moment(endDate).format("DD/MM/YYYY");
+  const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (
     <div>
@@ -18,7 +20,9 @@ const Search = () => {
 
       <main className="flex">
         <section className="flex-grow px-6 pt-14">
-          <p className="text-xs">300+ Stays - {range} for {noOfGuests} guests</p>
+          <p className="text-xs">
+            300+ Stays - {range} - for {noOfGuests} guests
+          </p>
 
           <h1 className="mt-2 mb-6 text-3xl font-semibold">
             Stays in {location}
@@ -30,6 +34,26 @@ const Search = () => {
             <p className="button">Price</p>
             <p className="button">Rooms and Beds</p>
             <p className="button">More Filters</p>
+          </div>
+
+          <div className="flex flex-col">
+            {data.map(
+              (
+                { img, location, title, description, star, price, total },
+                index
+              ) => (
+                <InfoCard
+                  img={img}
+                  location={location}
+                  title={title}
+                  description={description}
+                  star={star}
+                  price={price}
+                  total={total}
+                  key={index}
+                />
+              )
+            )}
           </div>
         </section>
       </main>
