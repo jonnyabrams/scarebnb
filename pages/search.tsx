@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import data from "../data";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 const Search = () => {
   const router = useRouter();
@@ -55,6 +56,10 @@ const Search = () => {
               )
             )}
           </div>
+        </section>
+
+        <section className="hidden lg:inline-flex lg:min-w-[600px]">
+          <Map />
         </section>
       </main>
 
