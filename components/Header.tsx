@@ -10,12 +10,14 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
 
   // configuration for date range picker - es6 short syntax for startDate: startDate & endDate: endDate
   const selectionRange = {
@@ -33,7 +35,10 @@ const Header = () => {
     <div>
       <header className="sticky top-0 z-50 grid grid-cols-3 p-5 bg-white shadow-md md:px-10">
         {/* left side */}
-        <div className="relative flex items-center h-10 my-auto cursor-pointer">
+        <div
+          onClick={() => router.push("/")}
+          className="relative flex items-center h-10 my-auto cursor-pointer"
+        >
           <Image
             src="/scarebnb-logo.png"
             layout="fill"
