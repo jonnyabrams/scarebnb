@@ -17,6 +17,10 @@ With more time I would like to develop this into a full-stack project with the f
 * Leave reviews
 * PayPal/Stripe integration
 
+## Video Demo
+
+https://user-images.githubusercontent.com/97295867/199858621-2f805b99-bbc1-41fd-97bd-ef34d530f2c1.mp4
+
 ---
 
 ## Technologies Used
