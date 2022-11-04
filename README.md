@@ -19,7 +19,7 @@ With more time I would like to develop this into a full-stack project with the f
 
 ---
 
-## Technologies Used
+## Technologies Used
 
 * Next.js
 * React
